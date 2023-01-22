@@ -1,24 +1,34 @@
-# README
+# ReviewMovies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+*知りたい映画の評価や感想を検索したり、自分の見た映画の評価や感想を投稿するレビューサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+*自分自身が映画が好きで周りの映画好きと感想を言い合うことがあるのですが、様々な人達の感想を知りたいため
+*色々な角度からの意見を取り入れることでそれを見ている人の必要そうな映画だけを見ることができるようになるため無駄な時間の削減になるため
 
-* Ruby version
+### ターゲットユーザ
+*映画が好きな方
+*コロナ環境下で巣籠をしている方
+*時間に余裕のある方
+*新しい趣味を探している方
+*気になっている映画の周りの評価を知りたい方
+*自分が見た映画の感想を周りと共感したい方
 
-* System dependencies
+### 主な利用シーン
+*自宅で時間に余裕がある際
+*通勤などの移動中
+*気になっている映画の周りの評価を知りたい時
+*自分が見た映画の感想を周りと共感したい時
 
-* Configuration
+## 設計書
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+- https://docs.google.com/spreadsheets/d/1crwqUX8Ymes_cv7pFA--srJEdgT04MZsv_VrvDO2CCU/edit#gid=1898975908# ReviewMovies
