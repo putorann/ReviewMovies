@@ -1,10 +1,10 @@
 <p id="notice"></p>
 <div class = "container px-5 px-sm-0">
-  <% if @book.errors.any? %>
+  <% if @movie.errors.any? %>
    <div id = "error_explantion">
-    <h3><%= pluralize(@book.errors.count, "error") %> prohibited this obj from being saved:</h3>
+    <h3><%= pluralize(@movie.errors.count, "error") %> prohibited this obj from being saved:</h3>
      <ul>
-      <% @book.errors.full_messages.each do |message| %>
+      <% @movie.errors.full_messages.each do |message| %>
       <li><%= message %></li>
       <% end %>
      </ul>
@@ -12,9 +12,9 @@
   <% end %>
 
   <div class = "row">
-   <%= render 'books/book', user: @user, book: @book %>
+   <%= render 'movies/movie', user: @user, movie: @movie %>
      <div class = "col-md-8 offset-md-1">
-      <h2>Books</h2>
+      <h2>Movies</h2>
       <table class="table table-hover table-inverse">
        <thead>
         <tr>
@@ -26,15 +26,15 @@
        </thead>
 
       <tbody>
-       <% @books.each do |book| %>
+       <% @movies.each do |movie| %>
         <tr>
          <td>
-          <%= link_to (book.user) do %>
-          <%= image_tag book.user.get_profile_image(100,100) %>
+          <%= link_to (movie.user) do %>
+          <%= image_tag movie.user.get_profile_image(100,100) %>
        <% end %>
          </td>
-         <td><%=link_to book.title, book_path(book) %></td>
-         <td><%= book.body %></td>
+         <td><%=link_to movie.title, movie_path(movie) %></td>
+         <td><%= movie.body %></td>
         </tr>
        <% end %>
       </tbody>

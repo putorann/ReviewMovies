@@ -1,10 +1,10 @@
 <div class="container px-5 px-sm-0">
  <div class="row">
 
-<%= render 'books/book', book: @book, user: @user %>
+<%= render 'movies/movie', movie: @movie, user: @user %>
 
 <div class="col-md-8 offset-md-1">
-   <h2>Books</h2>
+   <h2>Movies</h2>
   <table class="table table-hover table-inverse">
     <thead>
       <tr>
@@ -15,19 +15,19 @@
       </tr>
     </thead>
     <tbody>
-      <% @books.each do |book| %>
+      <% @movies.each do |movie| %>
       <tr>
         <td>
           <%= link_to user_path(@user.id) do %>
-          <%= image_tag book.user.get_profile_image(80,80) %>
+          <%= image_tag movie.user.get_profile_image(80,80) %>
           <% end %>
         </td>
         <td>
-          <%= link_to book_path(book.id) do %>
-          <%= book.title %>
+          <%= link_to movie_path(movie.id) do %>
+          <%= movie.title %>
           <% end %>
         </td>
-        <td><%= book.body %></td>
+        <td><%= movie.body %></td>
       </tr>
           <% end %>
     </tbody>

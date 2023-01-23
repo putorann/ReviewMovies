@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <title>ReviewMovie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,7 +16,7 @@
     <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
      <div class = "container">
       <a class = "navbar-brand" href = "/">
-       <span>Bookers</span>
+       <span>ReviewMovie</span>
       </a>
 
 
@@ -28,6 +28,9 @@
        <ul class = "navbar-nav ml-auto">
 
         <% if user_signed_in? %>
+         <li>
+          <%= render 'searches/search' %>
+         </li>
          <li><%= link_to user_path(current_user), class: 'nav-link text-light' do %>
              <i class="fas fa-home"></i> Home
              <% end %></li>
@@ -36,8 +39,8 @@
              <i class="fas fa-users"></i> Users
             <% end %></li>
 
-         <li><%= link_to books_path, class: 'nav-link text-light' do %>
-            <i class="fas fa-book-open"></i> Books
+         <li><%= link_to movies_path, class: 'nav-link text-light' do %>
+            <i class="fas fa-book-open"></i> Movies
             <% end %></li>
 
          <li> <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>

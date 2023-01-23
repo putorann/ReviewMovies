@@ -1,6 +1,6 @@
-class UsersController < ApplicationController
+class MoviesController < ApplicationController
 
-  def create
+   def create
     @movie = Movie.new(movie_params)
     @movies = Movie.all
     @movie.user_id = current_user.id
@@ -11,49 +11,49 @@ class UsersController < ApplicationController
    else
     render :index
    end
-
-  end
+   end
 
   def index
     @movie = Movie.new
     @movies = Movie.all
     @user = current_user
-    @users = User.all
   end
 
 
   def show
-    @movie = Movie.new
-    @user = User.find(params[:id])
-    @movies = @user.movies
+    @new_movie = Movie.new
+    @movie = Movie.find(params[:id])
+    @user = @movie.user
   end
 
   def edit
-    @user = User.find(params[:id])
-    if @user != current_user
-      redirect_to user_path(current_user)
+    @movie = Movie.find(params[:id])
+    if @movie.user == current_user
+      render "edit"
+    else
+      redirect_to movies_path
     end
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(user_params)
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
     flash[:notice] = "You have updated book successfully."
-    redirect_to user_path(@user.id)
+    redirect_to movie_path(params[:id])
     else
       render :edit
     end
   end
 
   def destroy
-    @books = Book.find(params[:id])
-    @books.destroy
-    redirect_to books_path
+    @movies = Movie.find(params[:id])
+    @movies.destroy
+    redirect_to movies_path
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+  def movie_params
+    params.require(:movie).permit(:title, :body)
   end
 end

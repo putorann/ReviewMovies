@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllres: { sessions: 'users/sessions' }
+  devise_scope :user do
+    post '/users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
+  get "search" => "searches#search"
   # , controllers: {
   #   registrations: 'users/registrations'
   # }
@@ -9,7 +14,12 @@ Rails.application.routes.draw do
 
   get '/home/about' => 'homes#about',as: 'about'
 
-  resources :books, only: [:new, :index, :show, :edit, :create, :update, :destroy]
+ # post '/homes/guest_sign_in', to: 'homes#guest_sign_in'
+
+
+  resources :movies, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+  end
 
 
   resources :users, only: [:index, :show, :edit, :update, :new, :create]
